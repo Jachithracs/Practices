@@ -18,34 +18,32 @@ ENTRYPOINT ["dotnet", "out/calculator.dll"]
 
 C#
 // calculator.cs
-using System;
+import java.util.Scanner;
 
-class Calculator
-{
-    static void Main()
-    {
-        Console.WriteLine("Hello, Docker!");
+public class Calculator {
+    public static void main(String[] args) {
+        System.out.println("Hello, Docker!");
 
-        while (true)
-        {
-            Console.WriteLine("Menu:");
-            Console.WriteLine("1. Addition");
-            Console.WriteLine("2. Subtraction");
-            Console.WriteLine("3. Multiplication");
-            Console.WriteLine("4. Division");
-            Console.WriteLine("5. Exit");
+        Scanner scanner = new Scanner(System.in);
 
-            Console.Write("Enter your choice: ");
-            string choice = Console.ReadLine();
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Exit");
 
-            switch (choice)
-            {
+            System.out.print("Enter your choice: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
                 case "1":
-                    Console.Write("Enter first number: ");
-                    int num1 = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter second number: ");
-                    int num2 = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"Result: {num1 + num2}");
+                    System.out.print("Enter first number: ");
+                    int num1 = scanner.nextInt();
+                    System.out.print("Enter second number: ");
+                    int num2 = scanner.nextInt();
+                    System.out.println("Result: " + (num1 + num2));
                     break;
                 case "2":
                     // Implement subtraction logic
@@ -57,15 +55,17 @@ class Calculator
                     // Implement division logic
                     break;
                 case "5":
-                    Console.WriteLine("Exiting calculator.");
+                    System.out.println("Exiting calculator.");
+                    scanner.close();
                     return;
                 default:
-                    Console.WriteLine("Invalid choice. Please try again.");
+                    System.out.println("Invalid choice. Please try again.");
                     break;
             }
         }
     }
 }
+
 
 BASH 
 
